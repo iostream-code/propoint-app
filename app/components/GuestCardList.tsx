@@ -115,7 +115,7 @@ export default function GuestCardList({ guests }: { guests: GuestSummary[] }) {
                             onTouchMove={(e) => handleTouchMove(guest.id, e)}
                             onTouchEnd={() => handleTouchEnd(guest.id)}
                             onDoubleClick={() => openDetail(guest.id)}
-                            className="relative bg-gray-50/60 p-4 transition-transform duration-200 ease-out select-none cursor-pointer"
+                            className="relative bg-gray-50 p-4 transition-transform duration-200 ease-out select-none cursor-pointer"
                             style={{ transform: `translateX(${isOpen ? -ACTIONS_WIDTH : 0}px)` }}
                         >
                             <div className="flex items-start justify-between gap-3">
