@@ -5,12 +5,17 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 const TABS = [
-    { href: '/pengunjung', label: 'Daftar Pengunjung' },
+    { href: '/pengunjung', label: 'Pengunjung' },
     { href: '/', label: 'Point' },
 ]
 
 export default function TabNav() {
     const pathname = usePathname()
+
+    function isActive(href: string) {
+        if (href === '/') return pathname === '/'
+        return pathname === href || pathname.startsWith(`${href}/`)
+    }
 
     return (
         <header className="w-full bg-gradient-to-b from-orange-50 to-transparent">
@@ -32,7 +37,7 @@ export default function TabNav() {
             <nav className="max-w-md mx-auto px-4 pb-2">
                 <div className="flex bg-white/70 backdrop-blur rounded-xl p-1 gap-1 shadow-sm border border-orange-100">
                     {TABS.map((tab) => {
-                        const active = pathname === tab.href
+                        const active = isActive(tab.href)
                         return (
                             <Link
                                 key={tab.href}
