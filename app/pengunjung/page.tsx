@@ -1,5 +1,6 @@
 import prisma from '../../lib/prisma'
 import TabNav from '../components/TabNav'
+import type { Guest } from '@prisma/client'
 
 // Menonaktifkan caching agar tabel selalu menampilkan data terbaru
 export const dynamic = 'force-dynamic'
@@ -35,7 +36,7 @@ export default async function PengunjungPage() {
                         <>
                             {/* Mobile: daftar kartu */}
                             <ul className="space-y-3 md:hidden">
-                                {guests.map((guest) => (
+                                {guests.map((guest: Guest) => (
                                     <li
                                         key={guest.id}
                                         className="border border-gray-100 rounded-xl p-4 bg-gray-50/60"
@@ -90,7 +91,7 @@ export default async function PengunjungPage() {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {guests.map((guest) => (
+                                        {guests.map((guest: Guest) => (
                                             <tr key={guest.id} className="border-b hover:bg-orange-50/50 transition">
                                                 <td className="p-4 text-sm text-gray-600">
                                                     {new Date(guest.createdAt).toLocaleDateString('id-ID')}

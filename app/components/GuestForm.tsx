@@ -105,7 +105,12 @@ export default function GuestForm() {
                 </p>
             </div>
 
-            <form action={addGuest} className="space-y-4">
+            <form
+                action={async (formData: FormData) => {
+                    await addGuest(formData)
+                }}
+                className="space-y-4"
+            >
                 <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">Nama PIC *</label>
                     <input
