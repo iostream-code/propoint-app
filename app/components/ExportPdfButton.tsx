@@ -91,7 +91,7 @@ export default function ExportPdfButton({ guests }: { guests: GuestExport[] }) {
                 <path d="M7 10l5 5 5-5" />
                 <path d="M5 21h14" />
             </svg>
-            {isExporting ? 'Membuat PDF...' : 'Export PDF'}
+            {isExporting ? 'Memproses..' : 'PDF'}
         </button>
     )
 }
