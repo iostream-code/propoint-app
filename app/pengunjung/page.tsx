@@ -1,6 +1,7 @@
 import prisma from '../../lib/prisma'
 import TabNav from '../components/TabNav'
 import GuestCardList from '../components/GuestCardList'
+import ExportPdfButton from '../components/ExportPdfButton'
 import type { Guest } from '@prisma/client'
 
 // Menonaktifkan caching agar tabel selalu menampilkan data terbaru
@@ -24,11 +25,14 @@ export default async function PengunjungPage() {
 
             <div className="max-w-5xl mx-auto px-4 mt-4">
                 <div className="bg-white rounded-2xl shadow-lg p-4 sm:p-6 border border-gray-100">
-                    <div className="flex items-center justify-between mb-4 sm:mb-6 gap-2">
+                    <div className="flex items-center justify-between mb-4 sm:mb-6 gap-2 flex-wrap">
                         <h2 className="text-lg sm:text-xl font-bold text-gray-800">Daftar</h2>
-                        <span className="shrink-0 text-xs sm:text-sm font-semibold text-orange-700 bg-orange-50 px-3 py-1 rounded-full">
-                            {guests.length} pengunjung
-                        </span>
+                        <div className="flex items-center gap-2">
+                            <span className="shrink-0 text-xs sm:text-sm font-semibold text-orange-700 bg-orange-50 px-3 py-1 rounded-full">
+                                {guests.length} pengunjung
+                            </span>
+                            <ExportPdfButton guests={guests} />
+                        </div>
                     </div>
 
                     {guests.length === 0 ? (
